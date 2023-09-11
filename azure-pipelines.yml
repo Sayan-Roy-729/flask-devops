@@ -24,3 +24,9 @@ steps:
     pip install pytest pytest-azurepipelines
     pytest
   displayName: 'pytest'
+
+- script: |
+    pip install gunicorn
+    gunicorn -w 4 -b 0.0.0.0:8000 app:app
+  displayName: 'Run Flask app with Gunicorn'
+
